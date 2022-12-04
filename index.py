@@ -1,10 +1,10 @@
-from turtle import Screen
-
+from turtle import Turtle, Screen
 from bishop import Bishop
 from knight import Knight
 
 with open("datas.txt") as datas:
 	english_alphabet = datas.readlines()
+
 
 position_dic = {
 	"a": -195,
@@ -29,11 +29,11 @@ horizontal_list = ["A", "B", "C", "D", "E", "F", "G", "H", "a", "b", "c", "d", "
 vertical_list = [1, 2, 3, 4, 5, 6, 7, 8]
 
 # Getting knight datas
-knight_horizontal_input = input("Please enter horizontal position of the knight (a,b,c,d,e,f,g,h): ")
+knight_horizontal_input = input("Please enter horizontal position of the knight (a,b,c,d,e,f,g,h): ").lower()
 knight_vertical_input = int(input("Please enter vertical position of the knight (1,2,3,4,5,6,7,8): "))
 
 # Getting bishop datas
-bishop_horizontal_input = input("Please enter horizontal position of the bishop (a,b,c,d,e,f,g,h): ")
+bishop_horizontal_input = input("Please enter horizontal position of the bishop (a,b,c,d,e,f,g,h): ").lower()
 bishop_vertical_input = int(input("Please enter vertical position of the bishop (1,2,3,4,5,6,7,8): "))
 
 
@@ -52,8 +52,23 @@ def validation(bead_name, bead_horizontal_input, bead_vertical_input):
 
 
 validation("Knight", knight_horizontal_input, knight_vertical_input)
-# validation("Bishop", bishop_horizontal_input, bishop_vertical_input)
+validation("Bishop", bishop_horizontal_input, bishop_vertical_input)
+
 screen = Screen()
+
+text_for_knight = Turtle()
+text_for_knight.color("red")
+text_for_knight.penup()
+text_for_knight.hideturtle()
+text_for_knight.goto(-210, 300)
+text_for_knight.write("Knight", font=("lalezar", 15, "normal"))
+
+text_for_bishop = Turtle()
+text_for_bishop.color("blue")
+text_for_bishop.penup()
+text_for_bishop.hideturtle()
+text_for_bishop.goto(-110, 300)
+text_for_bishop.write("Bishop", font=("lalezar", 15, "normal"))
 
 screen.bgpic("download (1).png")
 knight_x_pos = position_dic[knight_horizontal_input]
