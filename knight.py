@@ -23,4 +23,8 @@ class Knight(Turtle):
 		case6 = (self.pos[0] - 120, self.pos[1] + 60)
 		case7 = (self.pos[0] - 60, self.pos[1] - 120)
 		case8 = (self.pos[0] + 60, self.pos[1] + 120)
-		if
+		cases = [case8, case7, case6, case5, case4, case3, case2, case1]
+		if bishop_pos == self.pos:
+			print("They can't be in the same square")
+		if bishop_pos in cases:
+			print("Knight can attack bishop")

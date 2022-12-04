@@ -65,4 +65,7 @@ bishop_y_pos = position_dic[bishop_vertical_input]
 knight = Knight(horizontal=knight_x_pos, vertical=knight_y_pos)
 bishop = Bishop(horizontal=bishop_x_pos, vertical=bishop_y_pos)
 
+knight.kill_bishop(bishop.pos)
+bishop.kill_knight(knight.pos)
+
 screen.mainloop()
