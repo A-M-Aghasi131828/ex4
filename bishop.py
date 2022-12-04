@@ -38,4 +38,3 @@ class Bishop(Turtle):
         if knight_pos in all_cases:
             print("Bishop can attack knight")
 
-
