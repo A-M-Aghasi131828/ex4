@@ -1,0 +1,68 @@
+from turtle import Screen
+
+from bishop import Bishop
+from knight import Knight
+
+with open("datas.txt") as datas:
+	english_alphabet = datas.readlines()
+
+position_dic = {
+	"a": -195,
+	"b": -135,
+	"c": -75,
+	"d": -15,
+	"e": 45,
+	"f": 105,
+	"g": 175,
+	"h": 235,
+	1: -210,
+	2: -150,
+	3: -90,
+	4: -30,
+	5: 30,
+	6: 90,
+	7: 150,
+	8: 210,
+}
+
+horizontal_list = ["A", "B", "C", "D", "E", "F", "G", "H", "a", "b", "c", "d", "e", "f", "g", "h"]
+vertical_list = [1, 2, 3, 4, 5, 6, 7, 8]
+
+# Getting knight datas
+knight_horizontal_input = input("Please enter horizontal position of the knight (a,b,c,d,e,f,g,h): ")
+knight_vertical_input = int(input("Please enter vertical position of the knight (1,2,3,4,5,6,7,8): "))
+
+# Getting bishop datas
+bishop_horizontal_input = input("Please enter horizontal position of the bishop (a,b,c,d,e,f,g,h): ")
+bishop_vertical_input = int(input("Please enter vertical position of the bishop (1,2,3,4,5,6,7,8): "))
+
+
+def validation(bead_name, bead_horizontal_input, bead_vertical_input):
+	if bead_horizontal_input in english_alphabet:
+		if len(bead_horizontal_input) != 1:
+			print("Horizontal input is not a letter")
+		if bead_horizontal_input not in horizontal_list:
+			print("Horizontal input is not a proper letter")
+
+	if int(bead_vertical_input) < 0:
+		print("Vertical input is not a number")
+	else:
+		if bead_vertical_input not in vertical_list:
+			print(f"Vertical input for {bead_name} is not a proper number")
+
+
+validation("Knight", knight_horizontal_input, knight_vertical_input)
+# validation("Bishop", bishop_horizontal_input, bishop_vertical_input)
+screen = Screen()
+
+screen.bgpic("download (1).png")
+knight_x_pos = position_dic[knight_horizontal_input]
+knight_y_pos = position_dic[knight_vertical_input]
+
+bishop_x_pos = position_dic[bishop_horizontal_input]
+bishop_y_pos = position_dic[bishop_vertical_input]
+
+knight = Knight(horizontal=knight_x_pos, vertical=knight_y_pos)
+bishop = Bishop(horizontal=bishop_x_pos, vertical=bishop_y_pos)
+
+screen.mainloop()
