@@ -32,9 +32,10 @@ class Bishop(Turtle):
             case4 = (self.pos[0] - step, self.pos[1] - step)
             cases4.append(case4)
         all_cases = cases1 + cases2 + cases3 + cases4
+
         if self.pos == knight_pos:
             print("They can't be in the same square")
         if knight_pos in all_cases:
             print("Bishop can attack knight")
 
-        print(all_cases)
+
